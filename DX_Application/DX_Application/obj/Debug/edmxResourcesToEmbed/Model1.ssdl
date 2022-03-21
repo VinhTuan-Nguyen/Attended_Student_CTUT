@@ -1,0 +1,250 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="db_AttendedModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tb_Accounts">
+    <Key>
+      <PropertyRef Name="col_UserID" />
+    </Key>
+    <Property Name="col_UserID" Type="varchar" MaxLength="12" Nullable="false" />
+    <Property Name="col_Password" Type="varchar" MaxLength="32" Nullable="false" />
+    <Property Name="col_Role" Type="varchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_Attended">
+    <Key>
+      <PropertyRef Name="col_Index_Attended" />
+    </Key>
+    <Property Name="col_Index_Attended" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="col_DateAtd" Type="datetime" Nullable="false" />
+    <Property Name="col_TimeAtd" Type="time" Precision="7" Nullable="false" />
+    <Property Name="col_CoursesID" Type="int" Nullable="false" />
+    <Property Name="col_StudentID" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="col_TeacherID" Type="varchar" MaxLength="12" Nullable="false" />
+    <Property Name="col_RoomID" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="col_Note" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tb_ClassRooms">
+    <Key>
+      <PropertyRef Name="col_RoomID" />
+    </Key>
+    <Property Name="col_RoomID" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="col_RoomName" Type="nvarchar" MaxLength="50" />
+    <Property Name="col_Capacity" Type="int" />
+    <Property Name="col_CreateID" Type="varchar" MaxLength="12" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_Courses">
+    <Key>
+      <PropertyRef Name="col_CoursesID" />
+    </Key>
+    <Property Name="col_CoursesID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="col_CoursesName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="col_Semester" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="col_DateStr" Type="date" />
+    <Property Name="col_DateEnd" Type="date" />
+    <Property Name="col_DayoWeek" Type="varchar" MaxLength="10" />
+    <Property Name="col_Status" Type="nvarchar" MaxLength="30" />
+    <Property Name="col_TeacherID" Type="varchar" MaxLength="12" Nullable="false" />
+    <Property Name="col_RoomID" Type="varchar" MaxLength="5" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_RegisterCourses">
+    <Key>
+      <PropertyRef Name="col_Index_RegisterCourses" />
+    </Key>
+    <Property Name="col_Index_RegisterCourses" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="col_CoursesID" Type="int" Nullable="false" />
+    <Property Name="col_StudentID" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="col_Status" Type="nvarchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="tb_Students">
+    <Key>
+      <PropertyRef Name="col_StudentID" />
+    </Key>
+    <Property Name="col_StudentID" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="col_FName" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="col_DayoBirth" Type="date" Nullable="false" />
+    <Property Name="col_Major" Type="nvarchar" MaxLength="40" />
+    <Property Name="col_Email" Type="varchar" MaxLength="50" />
+    <Property Name="col_Phone" Type="varchar" MaxLength="10" />
+    <Property Name="col_Sex" Type="bit" />
+    <Property Name="col_Avatar" Type="image" />
+  </EntityType>
+  <EntityType Name="tb_Teachers">
+    <Key>
+      <PropertyRef Name="col_TeacherID" />
+    </Key>
+    <Property Name="col_TeacherID" Type="varchar" MaxLength="12" Nullable="false" />
+    <Property Name="col_FName" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="col_Department" Type="nvarchar" MaxLength="100" />
+    <Property Name="col_Email" Type="varchar" MaxLength="50" />
+    <Property Name="col_Phone" Type="varchar" MaxLength="10" />
+    <Property Name="col_Sex" Type="bit" />
+    <Property Name="col_Avatar" Type="image" />
+  </EntityType>
+  <Association Name="FK__tb_Accoun__col_U__440B1D61">
+    <End Role="tb_Teachers" Type="Self.tb_Teachers" Multiplicity="1" />
+    <End Role="tb_Accounts" Type="Self.tb_Accounts" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="tb_Teachers">
+        <PropertyRef Name="col_TeacherID" />
+      </Principal>
+      <Dependent Role="tb_Accounts">
+        <PropertyRef Name="col_UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tb_Attend__col_C__33D4B598">
+    <End Role="tb_Courses" Type="Self.tb_Courses" Multiplicity="1" />
+    <End Role="tb_Attended" Type="Self.tb_Attended" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_Courses">
+        <PropertyRef Name="col_CoursesID" />
+      </Principal>
+      <Dependent Role="tb_Attended">
+        <PropertyRef Name="col_CoursesID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tb_Attend__col_R__36B12243">
+    <End Role="tb_ClassRooms" Type="Self.tb_ClassRooms" Multiplicity="1" />
+    <End Role="tb_Attended" Type="Self.tb_Attended" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_ClassRooms">
+        <PropertyRef Name="col_RoomID" />
+      </Principal>
+      <Dependent Role="tb_Attended">
+        <PropertyRef Name="col_RoomID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tb_Attend__col_S__34C8D9D1">
+    <End Role="tb_Students" Type="Self.tb_Students" Multiplicity="1" />
+    <End Role="tb_Attended" Type="Self.tb_Attended" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_Students">
+        <PropertyRef Name="col_StudentID" />
+      </Principal>
+      <Dependent Role="tb_Attended">
+        <PropertyRef Name="col_StudentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tb_Attend__col_T__35BCFE0A">
+    <End Role="tb_Teachers" Type="Self.tb_Teachers" Multiplicity="1" />
+    <End Role="tb_Attended" Type="Self.tb_Attended" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_Teachers">
+        <PropertyRef Name="col_TeacherID" />
+      </Principal>
+      <Dependent Role="tb_Attended">
+        <PropertyRef Name="col_TeacherID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tb_ClassR__col_C__48CFD27E">
+    <End Role="tb_Teachers" Type="Self.tb_Teachers" Multiplicity="1" />
+    <End Role="tb_ClassRooms" Type="Self.tb_ClassRooms" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_Teachers">
+        <PropertyRef Name="col_TeacherID" />
+      </Principal>
+      <Dependent Role="tb_ClassRooms">
+        <PropertyRef Name="col_CreateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tb_Course__col_R__49C3F6B7">
+    <End Role="tb_ClassRooms" Type="Self.tb_ClassRooms" Multiplicity="1" />
+    <End Role="tb_Courses" Type="Self.tb_Courses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_ClassRooms">
+        <PropertyRef Name="col_RoomID" />
+      </Principal>
+      <Dependent Role="tb_Courses">
+        <PropertyRef Name="col_RoomID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tb_Course__col_T__2B3F6F97">
+    <End Role="tb_Teachers" Type="Self.tb_Teachers" Multiplicity="1" />
+    <End Role="tb_Courses" Type="Self.tb_Courses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_Teachers">
+        <PropertyRef Name="col_TeacherID" />
+      </Principal>
+      <Dependent Role="tb_Courses">
+        <PropertyRef Name="col_TeacherID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tb_Regist__col_C__2E1BDC42">
+    <End Role="tb_Courses" Type="Self.tb_Courses" Multiplicity="1" />
+    <End Role="tb_RegisterCourses" Type="Self.tb_RegisterCourses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_Courses">
+        <PropertyRef Name="col_CoursesID" />
+      </Principal>
+      <Dependent Role="tb_RegisterCourses">
+        <PropertyRef Name="col_CoursesID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tb_Regist__col_S__2F10007B">
+    <End Role="tb_Students" Type="Self.tb_Students" Multiplicity="1" />
+    <End Role="tb_RegisterCourses" Type="Self.tb_RegisterCourses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_Students">
+        <PropertyRef Name="col_StudentID" />
+      </Principal>
+      <Dependent Role="tb_RegisterCourses">
+        <PropertyRef Name="col_StudentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="db_AttendedModelStoreContainer">
+    <EntitySet Name="tb_Accounts" EntityType="Self.tb_Accounts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_Attended" EntityType="Self.tb_Attended" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_ClassRooms" EntityType="Self.tb_ClassRooms" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_Courses" EntityType="Self.tb_Courses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_RegisterCourses" EntityType="Self.tb_RegisterCourses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_Students" EntityType="Self.tb_Students" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_Teachers" EntityType="Self.tb_Teachers" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__tb_Accoun__col_U__440B1D61" Association="Self.FK__tb_Accoun__col_U__440B1D61">
+      <End Role="tb_Teachers" EntitySet="tb_Teachers" />
+      <End Role="tb_Accounts" EntitySet="tb_Accounts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tb_Attend__col_C__33D4B598" Association="Self.FK__tb_Attend__col_C__33D4B598">
+      <End Role="tb_Courses" EntitySet="tb_Courses" />
+      <End Role="tb_Attended" EntitySet="tb_Attended" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tb_Attend__col_R__36B12243" Association="Self.FK__tb_Attend__col_R__36B12243">
+      <End Role="tb_ClassRooms" EntitySet="tb_ClassRooms" />
+      <End Role="tb_Attended" EntitySet="tb_Attended" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tb_Attend__col_S__34C8D9D1" Association="Self.FK__tb_Attend__col_S__34C8D9D1">
+      <End Role="tb_Students" EntitySet="tb_Students" />
+      <End Role="tb_Attended" EntitySet="tb_Attended" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tb_Attend__col_T__35BCFE0A" Association="Self.FK__tb_Attend__col_T__35BCFE0A">
+      <End Role="tb_Teachers" EntitySet="tb_Teachers" />
+      <End Role="tb_Attended" EntitySet="tb_Attended" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tb_ClassR__col_C__48CFD27E" Association="Self.FK__tb_ClassR__col_C__48CFD27E">
+      <End Role="tb_Teachers" EntitySet="tb_Teachers" />
+      <End Role="tb_ClassRooms" EntitySet="tb_ClassRooms" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tb_Course__col_R__49C3F6B7" Association="Self.FK__tb_Course__col_R__49C3F6B7">
+      <End Role="tb_ClassRooms" EntitySet="tb_ClassRooms" />
+      <End Role="tb_Courses" EntitySet="tb_Courses" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tb_Course__col_T__2B3F6F97" Association="Self.FK__tb_Course__col_T__2B3F6F97">
+      <End Role="tb_Teachers" EntitySet="tb_Teachers" />
+      <End Role="tb_Courses" EntitySet="tb_Courses" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tb_Regist__col_C__2E1BDC42" Association="Self.FK__tb_Regist__col_C__2E1BDC42">
+      <End Role="tb_Courses" EntitySet="tb_Courses" />
+      <End Role="tb_RegisterCourses" EntitySet="tb_RegisterCourses" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tb_Regist__col_S__2F10007B" Association="Self.FK__tb_Regist__col_S__2F10007B">
+      <End Role="tb_Students" EntitySet="tb_Students" />
+      <End Role="tb_RegisterCourses" EntitySet="tb_RegisterCourses" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

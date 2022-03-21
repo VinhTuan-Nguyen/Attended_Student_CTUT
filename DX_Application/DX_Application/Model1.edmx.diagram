@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8cff577d043f43d6b6cb7a5b3a6e1b95" Name="Diagram1">
+        <EntityTypeShape EntityType="db_AttendedModel.tb_Accounts" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_AttendedModel.tb_Attended" Width="1.5" PointX="5.25" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_AttendedModel.tb_ClassRooms" Width="1.5" PointX="3" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_AttendedModel.tb_Courses" Width="1.5" PointX="8.25" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_AttendedModel.tb_RegisterCourses" Width="1.5" PointX="10.5" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_AttendedModel.tb_Students" Width="1.5" PointX="3" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_AttendedModel.tb_Teachers" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
+        <AssociationConnector Association="db_AttendedModel.FK__tb_Accoun__col_U__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="db_AttendedModel.FK__tb_Attend__col_C__33D4B598" ManuallyRouted="false" />
+        <AssociationConnector Association="db_AttendedModel.FK__tb_Attend__col_R__36B12243" ManuallyRouted="false" />
+        <AssociationConnector Association="db_AttendedModel.FK__tb_Attend__col_S__34C8D9D1" ManuallyRouted="false" />
+        <AssociationConnector Association="db_AttendedModel.FK__tb_Attend__col_T__35BCFE0A" ManuallyRouted="false" />
+        <AssociationConnector Association="db_AttendedModel.FK__tb_ClassR__col_C__48CFD27E" ManuallyRouted="false" />
+        <AssociationConnector Association="db_AttendedModel.FK__tb_Course__col_R__49C3F6B7" ManuallyRouted="false" />
+        <AssociationConnector Association="db_AttendedModel.FK__tb_Course__col_T__2B3F6F97" ManuallyRouted="false" />
+        <AssociationConnector Association="db_AttendedModel.FK__tb_Regist__col_C__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="db_AttendedModel.FK__tb_Regist__col_S__2F10007B" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

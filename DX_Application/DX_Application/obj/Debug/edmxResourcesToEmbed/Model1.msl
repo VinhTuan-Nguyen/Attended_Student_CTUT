@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="db_AttendedModelStoreContainer" CdmEntityContainer="db_AttendedEntities">
+    <EntitySetMapping Name="tb_Accounts">
+      <EntityTypeMapping TypeName="db_AttendedModel.tb_Accounts">
+        <MappingFragment StoreEntitySet="tb_Accounts">
+          <ScalarProperty Name="col_UserID" ColumnName="col_UserID" />
+          <ScalarProperty Name="col_Password" ColumnName="col_Password" />
+          <ScalarProperty Name="col_Role" ColumnName="col_Role" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_Attended">
+      <EntityTypeMapping TypeName="db_AttendedModel.tb_Attended">
+        <MappingFragment StoreEntitySet="tb_Attended">
+          <ScalarProperty Name="col_Index_Attended" ColumnName="col_Index_Attended" />
+          <ScalarProperty Name="col_DateAtd" ColumnName="col_DateAtd" />
+          <ScalarProperty Name="col_TimeAtd" ColumnName="col_TimeAtd" />
+          <ScalarProperty Name="col_CoursesID" ColumnName="col_CoursesID" />
+          <ScalarProperty Name="col_StudentID" ColumnName="col_StudentID" />
+          <ScalarProperty Name="col_TeacherID" ColumnName="col_TeacherID" />
+          <ScalarProperty Name="col_RoomID" ColumnName="col_RoomID" />
+          <ScalarProperty Name="col_Note" ColumnName="col_Note" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_ClassRooms">
+      <EntityTypeMapping TypeName="db_AttendedModel.tb_ClassRooms">
+        <MappingFragment StoreEntitySet="tb_ClassRooms">
+          <ScalarProperty Name="col_RoomID" ColumnName="col_RoomID" />
+          <ScalarProperty Name="col_RoomName" ColumnName="col_RoomName" />
+          <ScalarProperty Name="col_Capacity" ColumnName="col_Capacity" />
+          <ScalarProperty Name="col_CreateID" ColumnName="col_CreateID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_Courses">
+      <EntityTypeMapping TypeName="db_AttendedModel.tb_Courses">
+        <MappingFragment StoreEntitySet="tb_Courses">
+          <ScalarProperty Name="col_CoursesID" ColumnName="col_CoursesID" />
+          <ScalarProperty Name="col_CoursesName" ColumnName="col_CoursesName" />
+          <ScalarProperty Name="col_Semester" ColumnName="col_Semester" />
+          <ScalarProperty Name="col_DateStr" ColumnName="col_DateStr" />
+          <ScalarProperty Name="col_DateEnd" ColumnName="col_DateEnd" />
+          <ScalarProperty Name="col_DayoWeek" ColumnName="col_DayoWeek" />
+          <ScalarProperty Name="col_Status" ColumnName="col_Status" />
+          <ScalarProperty Name="col_TeacherID" ColumnName="col_TeacherID" />
+          <ScalarProperty Name="col_RoomID" ColumnName="col_RoomID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_RegisterCourses">
+      <EntityTypeMapping TypeName="db_AttendedModel.tb_RegisterCourses">
+        <MappingFragment StoreEntitySet="tb_RegisterCourses">
+          <ScalarProperty Name="col_Index_RegisterCourses" ColumnName="col_Index_RegisterCourses" />
+          <ScalarProperty Name="col_CoursesID" ColumnName="col_CoursesID" />
+          <ScalarProperty Name="col_StudentID" ColumnName="col_StudentID" />
+          <ScalarProperty Name="col_Status" ColumnName="col_Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_Students">
+      <EntityTypeMapping TypeName="db_AttendedModel.tb_Students">
+        <MappingFragment StoreEntitySet="tb_Students">
+          <ScalarProperty Name="col_StudentID" ColumnName="col_StudentID" />
+          <ScalarProperty Name="col_FName" ColumnName="col_FName" />
+          <ScalarProperty Name="col_DayoBirth" ColumnName="col_DayoBirth" />
+          <ScalarProperty Name="col_Major" ColumnName="col_Major" />
+          <ScalarProperty Name="col_Email" ColumnName="col_Email" />
+          <ScalarProperty Name="col_Phone" ColumnName="col_Phone" />
+          <ScalarProperty Name="col_Sex" ColumnName="col_Sex" />
+          <ScalarProperty Name="col_Avatar" ColumnName="col_Avatar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_Teachers">
+      <EntityTypeMapping TypeName="db_AttendedModel.tb_Teachers">
+        <MappingFragment StoreEntitySet="tb_Teachers">
+          <ScalarProperty Name="col_TeacherID" ColumnName="col_TeacherID" />
+          <ScalarProperty Name="col_FName" ColumnName="col_FName" />
+          <ScalarProperty Name="col_Department" ColumnName="col_Department" />
+          <ScalarProperty Name="col_Email" ColumnName="col_Email" />
+          <ScalarProperty Name="col_Phone" ColumnName="col_Phone" />
+          <ScalarProperty Name="col_Sex" ColumnName="col_Sex" />
+          <ScalarProperty Name="col_Avatar" ColumnName="col_Avatar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
