@@ -15,10 +15,10 @@ app = FastAPI()
 
 
 
-from tensorflow.keras.models import load_model
-model = load_model('model_KHDL.h5')
+from tensorflow.python.keras.models import load_model
+model = load_model('model.h5')
 
-with open('KHDL_Lable.txt', 'r') as file:
+with open('List_Labels.txt', 'r') as file:
     list_label = file.read().split()
     file.close()
 
