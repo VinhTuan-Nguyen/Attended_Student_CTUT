@@ -140,7 +140,7 @@ namespace DX_Application
                 Image pic = (Image)img; //(new Bitmap(img, new Size(224, 244)))
                 pic.Save($"{path}\\{val}.png");
                 Thread.Sleep(150);
-                Captureimg(path, sum, count - 1);
+                Captureimg(path, sum, --count);
             }
             else Console.WriteLine($"Compeleted !!!");
         }

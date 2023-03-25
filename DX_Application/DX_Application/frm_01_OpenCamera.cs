@@ -16,6 +16,7 @@ using Newtonsoft.Json.Linq;
 using RestSharp;
 using Newtonsoft.Json;
 using System.Data.Entity;
+using System.Text.RegularExpressions;
 
 namespace DX_Application
 {
@@ -196,13 +197,14 @@ namespace DX_Application
                 Result result = JsonConvert.DeserializeObject<Result>(d);
                 if (result.accuracy >= 90)
                 {
-                    lb_Label.Text = result.label;
-                    lb_Accuracy.Text = $"{result.accuracy}%";
+                    Regex pattern = new Regex("[^0-9]");
+                    lb_Label.Text = pattern.Replace(result.label.ToString(), "");
+                    lb_Accuracy.Text = $"{Math.Round(result.accuracy,2)}%";
                 }
                 else
                 {
                     lb_Label.Text = "??????????";
-                    lb_Accuracy.Text = "????????";
+                    lb_Accuracy.Text = "??????????";
                 }
             }
             catch

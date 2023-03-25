@@ -4,7 +4,7 @@ import pickle
 import json
 
 
-def save_data(raw_folder="data\\"):
+def save_data(raw_folder="Data\\"):
     print("Bắt đầu xử lý ảnh...")
 
     pixels = []
@@ -23,7 +23,7 @@ def save_data(raw_folder="data\\"):
     list_label = sorted(set(labels), key=labels.index)
     print(list_label)
 
-    with open('List_Label.txt', "w") as f:
+    with open('List_Labels.txt', "w") as f:
         f.write(json.dumps(list_label))
         f.close()
 

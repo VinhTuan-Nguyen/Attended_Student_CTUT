@@ -42,8 +42,8 @@
           <Property Name="col_CoursesID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="col_CoursesName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="col_Semester" Type="varchar" MaxLength="15" Nullable="false" />
-          <Property Name="col_DateStr" Type="date" />
-          <Property Name="col_DateEnd" Type="date" />
+          <Property Name="col_DateStr" Type="datetime" />
+          <Property Name="col_DateEnd" Type="datetime" />
           <Property Name="col_DayoWeek" Type="varchar" MaxLength="10" />
           <Property Name="col_Status" Type="nvarchar" MaxLength="30" />
           <Property Name="col_TeacherID" Type="varchar" MaxLength="12" Nullable="false" />
@@ -64,12 +64,12 @@
           </Key>
           <Property Name="col_StudentID" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="col_FName" Type="nvarchar" MaxLength="30" Nullable="false" />
-          <Property Name="col_DayoBirth" Type="date" Nullable="false" />
+          <Property Name="col_DayoBirth" Type="datetime" Nullable="false" />
           <Property Name="col_Major" Type="nvarchar" MaxLength="40" />
           <Property Name="col_Email" Type="varchar" MaxLength="50" />
           <Property Name="col_Phone" Type="varchar" MaxLength="10" />
           <Property Name="col_Sex" Type="bit" />
-          <Property Name="col_Avatar" Type="image" />
+          <Property Name="col_Avatar" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="tb_Teachers">
           <Key>
@@ -81,7 +81,7 @@
           <Property Name="col_Email" Type="varchar" MaxLength="50" />
           <Property Name="col_Phone" Type="varchar" MaxLength="10" />
           <Property Name="col_Sex" Type="bit" />
-          <Property Name="col_Avatar" Type="image" />
+          <Property Name="col_Avatar" Type="varbinary(max)" />
         </EntityType>
         <Association Name="FK__tb_Accoun__col_U__440B1D61">
           <End Role="tb_Teachers" Type="Self.tb_Teachers" Multiplicity="1" />
@@ -302,8 +302,8 @@
           <Property Name="col_CoursesID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="col_CoursesName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="col_Semester" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="col_DateStr" Type="DateTime" Precision="0" />
-          <Property Name="col_DateEnd" Type="DateTime" Precision="0" />
+          <Property Name="col_DateStr" Type="DateTime" Precision="3" />
+          <Property Name="col_DateEnd" Type="DateTime" Precision="3" />
           <Property Name="col_DayoWeek" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="col_Status" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="col_TeacherID" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
@@ -330,7 +330,7 @@
           </Key>
           <Property Name="col_StudentID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="col_FName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="col_DayoBirth" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="col_DayoBirth" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="col_Major" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
           <Property Name="col_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="col_Phone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
@@ -629,7 +629,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />

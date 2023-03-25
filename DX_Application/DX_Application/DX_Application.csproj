@@ -327,13 +327,11 @@
     <EmbeddedResource Include="frm_01_OpenCamera.resx">
       <DependentUpon>frm_01_OpenCamera.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="App.config">
-      <SubType>Designer</SubType>
-    </None>
     <EntityDeploy Include="Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="App.Config" />
     <None Include="Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </None>
@@ -451,6 +449,12 @@
     <None Include="Resources\paste_32x32.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\greaterthan_32x32.png" />
+    <None Include="Resources\show_32x322.png" />
+    <None Include="Resources\recurrence_32x32.png" />
+    <None Include="Resources\notes_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Model1.Context.cs</LastGenOutput>
@@ -461,10 +465,6 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
-    <None Include="Resources\greaterthan_32x32.png" />
-    <None Include="Resources\show_32x322.png" />
-    <None Include="Resources\recurrence_32x32.png" />
-    <None Include="Resources\notes_32x32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
